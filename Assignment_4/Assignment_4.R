@@ -101,10 +101,10 @@ data1$sighttime_alt <- ymd_hm(data1$sighttime)
 
 # Converting seconds duration into a POSIX for later calculations
 # Using timezone as UTC but does not matter as measuring duration (don't need to keep track of time)
-data1$duration.seconds_alt <- as.POSIXct(duration.seconds, tz = "UTC")
+data1$duration.seconds_alt <- as.POSIXct(data1$duration.seconds, tz = "UTC")
 
 # NOTE: didn't convert duration.hours.sec as it is very messy and consists of 
-# widely varied comments on time (wide variation in string format)
+# widely varied comments on time (wide variation in string format).
 # as analysis does not use this variable, best to leave it alone instead of losing data when filtering/sorting into date data 
 
 # Setting missing comments as NA 
@@ -202,5 +202,3 @@ suppressWarnings(hist(log_secs, main= "Duration of Reported UFO Sightings, 2010 
 axis(side = 1, at = graph_ticks_log,labels = graph_lbls, las = 2, cex.axis = 0.7)
 # Using custom axis to set tick marks and make bin ranges more evident
 # Using suppress warning as it throws an error about how areas are incorrect due to custom bins 
-
-
